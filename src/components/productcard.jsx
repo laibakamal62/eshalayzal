@@ -67,7 +67,9 @@ export default function ProductCard({ product }) {
       <div className="px-4 pb-5 pt-2">
         {/* Name & Category: vertical on mobile, horizontal on larger screens */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-md font-semibold text-gray-800">{product.name}</h2>
+<h2 className="text-sm sm:text-md md:text-lg font-semibold text-gray-800 truncate w-full">
+  {product.name}
+</h2>
           <p className="text-sm text-gray-500 capitalize mt-1 sm:mt-0">{product.category}</p>
         </div>
 

@@ -6,8 +6,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: <FaFacebook />, href: "https://facebook.com" },
     { icon: <FaInstagram />, href: "https://instagram.com" },
-    { icon: <FaTwitter />, href: "https://twitter.com" },
-    { icon: <FaLinkedin />, href: "https://linkedin.com" },
+
   ];
 
   return (
@@ -16,48 +15,24 @@ export default function Footer() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8"
+        className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10"
       >
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-600">ShopMaster</h2>
-          <p className="mt-3 text-gray-600 text-sm">
+          <h2 className="text-2xl font-bold text-purple-600">EshalAyzal Collection</h2>
+          <p className="mt-3 text-gray-600 text-sm leading-relaxed">
             Your one-stop shop for premium products at unbeatable prices.
           </p>
-          <div className="flex gap-3 mt-4">
-            {socialLinks.map((s, idx) => (
-              <a
-                key={idx}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-600 text-lg p-2 bg-white rounded-full shadow hover:shadow-lg hover:text-pink-500 transition"
-              >
-                {s.icon}
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Quick Links */}
         <div>
           <h3 className="text-lg font-semibold text-gray-800">Quick Links</h3>
           <ul className="mt-3 space-y-2 text-gray-600 text-sm">
-            <li><a href="#" className="hover:text-purple-500">Home</a></li>
-            <li><a href="#" className="hover:text-purple-500">Shop</a></li>
-            <li><a href="About" className="hover:text-purple-500">About Us</a></li>
-            <li><a href="#" className="hover:text-purple-500">Contact</a></li>
-          </ul>
-        </div>
-
-        {/* Customer Service */}
-        <div>
-          <h3 className="text-lg font-semibold text-gray-800">Customer Service</h3>
-          <ul className="mt-3 space-y-2 text-gray-600 text-sm">
-            <li><a href="#" className="hover:text-purple-500">FAQ</a></li>
-            <li><a href="#" className="hover:text-purple-500">Returns</a></li>
-            <li><a href="#" className="hover:text-purple-500">Shipping Info</a></li>
-            <li><a href="#" className="hover:text-purple-500">Privacy Policy</a></li>
+            <li><a href="/" className="hover:text-purple-600 transition">Home</a></li>
+            <li><a href="/products" className="hover:text-purple-600 transition">Products</a></li>
+            <li><a href="/about" className="hover:text-purple-600 transition">About Us</a></li>
+            <li><a href="/profile" className="hover:text-purple-600 transition">Profile</a></li>
           </ul>
         </div>
 
@@ -75,17 +50,36 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="bg-purple-600 hover:bg-pink-500 text-white px-6 py-2 rounded-lg shadow"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg shadow transition"
             >
               Subscribe
             </button>
           </form>
         </div>
+
+        {/* Social Media */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-800">Follow Us</h3>
+          <div className="mt-4 flex space-x-4">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                className="text-purple-600 hover:text-purple-800 text-2xl transition"
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </div>
+        </div>
       </motion.div>
 
       {/* Bottom Bar */}
       <div className="border-t border-purple-200 py-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} ShopMaster. All rights reserved.
+        © {new Date().getFullYear()} EshalAyzal Collection. All rights reserved.
       </div>
     </footer>
   );

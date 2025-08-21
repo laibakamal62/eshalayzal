@@ -134,9 +134,10 @@ export default function ProductDetail() {
           transition={{ duration: 0.7 }}
           className="relative p-8"
         >
-          <h1 className="text-3xl font-bold mb-4 text-[#7C3AED] bg-clip-text">
-            {product.name}
-          </h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-[#7C3AED] bg-clip-text truncate w-full">
+  {product.name}
+</h1>
+
           <div className="mb-6">
             <p className="text-gray-600 leading-relaxed">
               {product.description || "No description available"}
@@ -154,7 +155,7 @@ export default function ProductDetail() {
             Stock:{" "}
             <span
               className={`font-medium ${
-                product.stock > 0 ? "text-green-600" : "text-red-600"
+                product.stock > 0 ? "text-[#7C3AED]" : "text-red-600"
               }`}
             >
               {product.stock} in stock

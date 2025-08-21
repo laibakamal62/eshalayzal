@@ -18,13 +18,14 @@ export default function WhatsAppPopup() {
 
   return (
     <a
-      href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 z-50 flex items-center bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all"
-    >
-      <FaWhatsapp className="mr-2" size={24} />
-      Chat with us
-    </a>
+  href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-15 right-5 z-50 flex items-center bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all"
+>
+  <FaWhatsapp className="mr-2" size={24} />
+  Chat with us
+</a>
+
   );
 }

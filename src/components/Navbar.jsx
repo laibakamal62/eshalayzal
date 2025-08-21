@@ -3,12 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
-import { HiMenu, HiX, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 import { useCart } from "@/app/context/CartContext";
 import { useAuth } from "@/app/context/AuthContext";
+import { AiFillHome, AiOutlineInfoCircle } from "react-icons/ai";
+import { MdOutlineCategory } from "react-icons/md";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const router = useRouter();
@@ -24,30 +25,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Mobile Search */}
-      <div className="md:hidden px-4 pt-4 pb-2 w-full top-0 z-50">
-        <div className="flex items-center border border-gray-700 rounded-3xl overflow-hidden">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full px-3 py-2 bg-transparent text-black placeholder-black focus:outline-none"
-          />
-          <button className="px-3 py-2.5 bg-[#7C3AED] rounded-3xl font-semibold text-sm transition">
-            Search
-          </button>
-        </div>
-      </div>
-
-      {/* Navbar */}
+      {/* Top Navbar */}
       <nav className="bg-[#5B21B6] text-white px-4 py-4 w-full top-14 md:top-0 z-40 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap relative">
-          {/* Logo + Hamburger */}
+          {/* Logo */}
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="/" className="block">
               <div className="text-center leading-tight">
                 <h1 className="text-2xl font-bold tracking-wide text-white">
                   <span className="text-white italic font-serif">Eshal</span>
-                 
                   <span className="text-white italic font-serif">Ayzal</span>
                 </h1>
                 <p className="text-xs uppercase tracking-widest text-[#EDE9FE] font-light">
@@ -55,20 +41,10 @@ export default function Navbar() {
                 </p>
               </div>
             </Link>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-white md:hidden text-2xl"
-            >
-              {isOpen ? <HiX /> : <HiMenu />}
-            </button>
           </div>
 
-          {/* Nav Links */}
-          <ul
-            className={`md:flex space-y-4 md:space-y-0 md:space-x-8 mt-4 md:mt-0 text-sm font-medium ${
-              isOpen ? "block" : "hidden"
-            } w-full md:w-auto`}
-          >
+          {/* Nav Links (Desktop Only) */}
+          <ul className="hidden md:flex space-x-8 text-md font-medium">
             <li>
               <Link href="/" className="block hover:text-[#C4B5FD]">
                 HOME
@@ -80,25 +56,14 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className="block hover:text-[#C4B5FD]">
-                PORTFOLIO
+              <Link href="/products" className="block hover:text-[#C4B5FD]">
+                PRODUCTS
               </Link>
             </li>
           </ul>
 
           {/* Desktop Icons */}
           <div className="hidden md:flex items-center space-x-3 text-xl">
-            <div className="flex items-center border border-white overflow-hidden rounded-full">
-              <input
-                type="text"
-                placeholder="Search"
-                className="px-3 py-2 bg-transparent text-white placeholder-white focus:outline-none"
-              />
-              <button className="px-4 py-3 rounded-full bg-[#C4B5FD] hover:bg-[#4338CA] text-[#5B21B6] font-semibold text-sm transition">
-                Search
-              </button>
-            </div>
-
             <Link
               href="/wishlist"
               className="border border-white rounded-full p-2"
@@ -155,12 +120,18 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Mobile Icons */}
-          <div className="md:hidden flex items-center absolute right-12 top-4 space-x-4 text-[18px]">
-            <Link href="/wishlist">
+          {/* Mobile Icons (Top Right) */}
+          <div className="md:hidden flex items-center absolute right-4 top-2 space-x-3 text-[18px]">
+            <Link
+              href="/wishlist"
+              className="border border-white rounded-full p-2"
+            >
               <FaHeart />
             </Link>
-            <Link href="/cart" className="relative">
+            <Link
+              href="/cart"
+              className="relative border border-white rounded-full p-2"
+            >
               <FaShoppingCart />
               {cartItems.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
@@ -172,7 +143,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="text-white"
+                  className="border border-white rounded-full p-2"
                 >
                   <FaUser />
                 </button>
@@ -196,11 +167,48 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
-              <Link href="/login">
+              <Link
+                href="/login"
+                className="border border-white rounded-full p-2"
+              >
                 <FaUser />
               </Link>
             )}
           </div>
+        </div>
+      </nav>
+
+      {/* Bottom Navbar (Mobile Only) */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
+        <div className="flex justify-around items-center py-2">
+          <Link
+            href="/"
+            className="flex flex-col items-center text-gray-700 hover:text-indigo-600"
+          >
+            <AiFillHome className="text-2xl" />
+            <span className="text-xs font-medium">Home</span>
+          </Link>
+          <Link
+            href="/products"
+            className="flex flex-col items-center text-gray-700 hover:text-indigo-600"
+          >
+            <MdOutlineCategory className="text-2xl" />
+            <span className="text-xs font-medium">Products</span>
+          </Link>
+          <Link
+            href="/About"
+            className="flex flex-col items-center text-gray-700 hover:text-indigo-600"
+          >
+            <AiOutlineInfoCircle className="text-2xl" />
+            <span className="text-xs font-medium">About</span>
+          </Link>
+          <Link
+            href={isLoggedIn ? "/profile" : "/login"}
+            className="flex flex-col items-center text-gray-700 hover:text-indigo-600"
+          >
+            <FaUser className="text-2xl" />
+            <span className="text-xs font-medium">Profile</span>
+          </Link>
         </div>
       </nav>
 
