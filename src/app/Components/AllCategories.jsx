@@ -6,7 +6,7 @@ export default function AllCategories() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/get-categories")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/get-categories`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -17,35 +17,34 @@ export default function AllCategories() {
   }, []);
 
   return (
-   <section className="w-full mt-6 py-10 px-4 sm:px-6">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-extrabold mb-10 text-gray-900 tracking-wide">
-    READY TO WEAR
-  </h1>
+    <section className="w-full mt-6 py-10 px-4 sm:px-6">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-extrabold mb-10 text-gray-900 tracking-wide">
+        READY TO WEAR
+      </h1>
 
-  <div className="max-w-6xl mx-auto flex justify-center">
-    <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-8 justify-items-center">
-      {categories.map((category) => (
-        <Link
-          key={category._id}
-          href={`/categories/${category.slug}`}
-          className="flex flex-col items-center text-center group"
-        >
-          <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-gray-300 shadow-sm group-hover:shadow-md transition">
-            <img
-              src={`http://localhost:3000/${category.image}`}
-              alt={category.name}
-              className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
-            />
-          </div>
+      <div className="max-w-6xl mx-auto flex justify-center">
+        <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-8 justify-items-center">
+          {categories.map((category) => (
+            <Link
+              key={category._id}
+              href={`/categories/${category.slug}`}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-gray-300 shadow-sm group-hover:shadow-md transition">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_API_URL}/${category.image}`}
+                  alt={category.name}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
+                />
+              </div>
 
-          <h2 className="mt-3 text-sm sm:text-base font-semibold text-gray-800 group-hover:text-black transition">
-            {category.name}
-          </h2>
-        </Link>
-      ))}
-    </div>
-  </div>
-</section>
-
+              <h2 className="mt-3 text-sm sm:text-base font-semibold text-gray-800 group-hover:text-black transition">
+                {category.name}
+              </h2>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

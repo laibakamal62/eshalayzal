@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 
 export default function ProductCard({ product }) {
   const [isInWishlist, setIsInWishlist] = useState(false);
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -43,7 +44,7 @@ export default function ProductCard({ product }) {
         <Link href={`/products/${product._id}`}>
           <div className="w-full h-80 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all p-3 flex items-center justify-center">
   <img
-    src={`http://localhost:3000/uploads/products/${product.image}`}
+    src={`${baseURL}/uploads/products/${product.image}`}
     alt={product.name}
     className="max-h-full max-w-full object-contain"
   />

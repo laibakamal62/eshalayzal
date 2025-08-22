@@ -5,6 +5,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     const stored = localStorage.getItem("cartItems");
@@ -17,7 +18,7 @@ export function CartProvider({ children }) {
           price: Number(item.price) || 0,
           image: item.image.startsWith("http") || item.image.startsWith("/")
             ? item.image
-            : `http://localhost:3000/uploads/products/${item.image}`,
+            : `${baseURL}/uploads/products/${item.image}`,
         }));
         setCartItems(sanitized);
       } catch (err) {
@@ -35,7 +36,7 @@ export function CartProvider({ children }) {
     const safePrice = Number(product.price) || 0;
     const imagePath = product.image.startsWith("http")
       ? product.image
-      : `http://localhost:3000/uploads/products/${product.image}`;
+      : `${baseURL}/uploads/products/${product.image}`;
 
     setCartItems((prevItems) => {
       

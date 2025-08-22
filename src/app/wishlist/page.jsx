@@ -7,6 +7,7 @@ import { useCart } from "../context/CartContext";
 export default function WishlistPage() {
   const [wishlistItems, setWishlistItems] = useState([]);
   const { addToCart } = useCart();
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     const stored = localStorage.getItem("wishlist");
@@ -20,7 +21,7 @@ export default function WishlistPage() {
           image:
             item.image.startsWith("http") || item.image.startsWith("/")
               ? item.image
-              : `http://localhost:3000/uploads/products/${item.image}`,
+              : `${baseURL}/uploads/products/${item.image}`,
           uniqueId:
             item.uniqueId ||
             `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2)}`,
@@ -105,7 +106,7 @@ export default function WishlistPage() {
                 <Image
                   src={
                     item.image ||
-                    "http://localhost:3000/uploads/products/fallback-image.jpg"
+                   ` ${baseURL}/uploads/products/fallback-image.jpg`
                   }
                   alt={item.title}
                   width={80}

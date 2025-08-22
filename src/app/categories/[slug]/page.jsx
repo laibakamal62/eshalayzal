@@ -16,11 +16,12 @@ export default function CategoryProducts() {
       setLoading(false);
       return;
     }
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-products?categorySlug=${slug}`,
+          `${baseURL}/api/get-products?categorySlug=${slug}`,
           {
             headers: { "Content-Type": "application/json" },
           }

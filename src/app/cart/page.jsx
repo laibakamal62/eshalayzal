@@ -10,6 +10,9 @@ export default function CartPage() {
   const [wishlistItems, setWishlistItems] = useState([]);
   const router = useRouter();
 
+  // ✅ Define baseURL once so you can use everywhere
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
   useEffect(() => {
     const stored = localStorage.getItem("wishlist");
     if (stored) {
@@ -20,7 +23,7 @@ export default function CartPage() {
           image:
             item.image.startsWith("http") || item.image.startsWith("/")
               ? item.image
-              : `http://localhost:3000/uploads/products/${item.image}`,
+              : `${baseURL}/uploads/products/${item.image}`,
           uniqueId:
             item.uniqueId ||
             `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2)}`,
@@ -30,7 +33,7 @@ export default function CartPage() {
         console.error("Error parsing wishlist from localStorage", err);
       }
     }
-  }, []);
+  }, [baseURL]);
 
   const toggleWishlist = (item) => {
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -47,7 +50,7 @@ export default function CartPage() {
         image:
           item.image.startsWith("http") || item.image.startsWith("/")
             ? item.image
-            : `http://localhost:3000/uploads/products/${item.image}`,
+            : `${baseURL}/uploads/products/${item.image}`,
       });
     }
 
@@ -101,8 +104,11 @@ export default function CartPage() {
                 <div className="flex gap-4 items-center col-span-5 w-full md:w-auto">
                   <Image
                     src={
-                      item.image ||
-                      "http://localhost:3000/uploads/products/fallback-image.jpg"
+                      item.image
+                        ? item.image.startsWith("http") || item.image.startsWith("/")
+                          ? item.image
+                          : `${baseURL}/uploads/products/${item.image}`
+                        : `${baseURL}/uploads/products/fallback-image.jpg`
                     }
                     alt={item.title}
                     width={60}
