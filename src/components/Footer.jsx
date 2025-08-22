@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: <FaFacebook />, href: "https://facebook.com" },
-    { icon: <FaInstagram />, href: "https://instagram.com" },
+    { icon: <FaFacebook />, href: "https://www.facebook.com/share/1ZhE7bMM2n/" },
+  
 
   ];
 
@@ -31,7 +31,7 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-gray-600 text-sm">
             <li><a href="/" className="hover:text-purple-600 transition">Home</a></li>
             <li><a href="/products" className="hover:text-purple-600 transition">Products</a></li>
-            <li><a href="/about" className="hover:text-purple-600 transition">About Us</a></li>
+            <li><a href="/About" className="hover:text-purple-600 transition">About Us</a></li>
             <li><a href="/profile" className="hover:text-purple-600 transition">Profile</a></li>
           </ul>
         </div>
