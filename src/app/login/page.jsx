@@ -35,10 +35,7 @@ export default function LoginPage() {
         return;
       }
 
-      // Update auth context
       login(data.token, data.user);
-
-      // Redirect to homepage
       router.push("/");
     } catch (err) {
       setError("Something went wrong. Please try again.");
@@ -54,56 +51,62 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-purple-300 to-indigo-400 overflow-hidden">
-      <div className="flex w-full max-w-6xl h-[500px] bg-white/20 backdrop-blur-xl shadow-xl rounded-2xl overflow-hidden border border-white/30">
+<div className="min-h-screen flex items-start justify-center bg-gradient-to-br from-purple-600 via-purple-300 to-indigo-400 px-4 py-6 overflow-y-auto">
+  <div className="w-full max-w-md md:max-w-4xl bg-white/20 backdrop-blur-xl shadow-2xl rounded-2xl overflow-hidden border border-white/30">
+    <div className="flex flex-col md:flex-row">
         {/* Left Side */}
-        <div className="w-1/2 bg-gradient-to-br from-purple-800 to-indigo-700 text-white flex flex-col justify-center items-start px-10 py-16 space-y-6">
-          <h2 className="text-4xl font-extrabold animate-fade-in drop-shadow-md">
-            Welcome to
-          </h2>
-          <h3 className="text-3xl font-bold tracking-tight">
-            Eshal & Ayzal Collection
-          </h3>
-          <p className="text-base text-white/90 pr-6 leading-relaxed">
-            Explore a world of fashion, beauty, and exclusive deals. Shop smart
-            and stay stylish with our collection.
-          </p>
-          <Link href="/signup">
-            <button className="mt-10 bg-white text-purple-800 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 ease-in-out">
-              Don’t have an account? <span className="font-bold">Sign Up</span>
-            </button>
-          </Link>
-        </div>
+       {/* Left Side */}
+<div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-800 to-indigo-700 text-white flex flex-col justify-center items-center lg:items-start px-6 sm:px-10 py-10 sm:py-16 space-y-4 sm:space-y-6 text-center lg:text-left">
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold animate-fade-in drop-shadow-md">
+    Welcome to
+  </h2>
+  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
+    Eshal & Ayzal Collection
+  </h3>
+
+  {/* Description removed on mobile */}
+  <p className="hidden md:block text-sm sm:text-base text-white/90 leading-relaxed max-w-md">
+    Explore a world of fashion, beauty, and exclusive deals. Shop smart
+    and stay stylish with our collection.
+  </p>
+
+  <Link href="/signup" className="w-full sm:w-auto">
+    <button className="mt-6 sm:mt-10 w-full sm:w-auto bg-white text-purple-800 font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 ease-in-out">
+      Don’t have an account? <span className="font-bold">Sign Up</span>
+    </button>
+  </Link>
+</div>
+
 
         {/* Right Side */}
-        <div className="w-1/2 flex flex-col justify-center px-12 py-16 bg-white rounded-tr-2xl rounded-br-2xl">
-          <h2 className="text-4xl font-extrabold text-center text-purple-800 mb-10 animate-slide-up">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-12 py-10 sm:py-16 bg-white rounded-t-2xl lg:rounded-tr-2xl lg:rounded-br-2xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-purple-800 mb-6 sm:mb-10 animate-slide-up">
             Login
           </h2>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
-            <div className="mb-6 relative group">
+            <div className="relative group">
               <FaUser className="absolute top-3.5 left-4 text-purple-400 group-hover:text-purple-600 transition-colors duration-300" />
               <input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm hover:shadow-md transition-all duration-300"
+                className="w-full pl-12 pr-4 py-3 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm hover:shadow-md transition-all duration-300 text-sm sm:text-base"
                 required
               />
             </div>
 
             {/* Password */}
-            <div className="mb-8 relative group">
+            <div className="relative group">
               <FaLock className="absolute top-3.5 left-4 text-purple-400 group-hover:text-purple-600 transition-colors duration-300" />
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-12 pr-12 py-3 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm hover:shadow-md transition-all duration-300"
+                className="w-full pl-12 pr-12 py-3 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm hover:shadow-md transition-all duration-300 text-sm sm:text-base"
                 required
               />
               <span
@@ -128,7 +131,7 @@ export default function LoginPage() {
             </button>
 
             {/* Link */}
-            <p className="text-center mt-6 text-sm text-gray-600">
+            <p className="text-center mt-6 text-xs sm:text-sm text-gray-600">
               Don’t have an account?{" "}
               <Link
                 href="/signup"
@@ -139,6 +142,7 @@ export default function LoginPage() {
             </p>
           </form>
         </div>
+         </div>
       </div>
 
       <style jsx>{`

@@ -1,11 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
-import { Toaster } from "react-hot-toast";
-import Footer from "@/components/Footer";
-import WhatsAppPopup from "./Components/whatsapp";
+import ClientLayoutWrapper from "./ClientLayoutWrapper"; // 👈 import your wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,18 +27,8 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           <CartProvider>
-            <Navbar />
-            <Toaster position="top-center" />
-
-            {/* Main content area that grows to push footer down */}
-            <main className="flex-grow">
-              {children}
-            </main>
-
-            <Footer />
-
-            {/* WhatsApp floating popup */}
-            <WhatsAppPopup />
+            {/* 👇 This wrapper handles Navbar/Footer/WhatsAppPopup conditionally */}
+            <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
           </CartProvider>
         </AuthProvider>
       </body>

@@ -21,7 +21,7 @@ export default function CategoryProducts() {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `${baseURL}/api/get-products?categorySlug=${slug}`,
+          `a/api/get-products?categorySlug=${slug}`,
           {
             headers: { "Content-Type": "application/json" },
           }
