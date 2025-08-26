@@ -32,9 +32,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="/" className="block">
               <div className="text-center leading-tight">
-                <h1 className="text-2xl font-bold tracking-wide text-white">
-                  <span className="text-white italic font-serif">Eshal</span>
-                  <span className="text-white italic font-serif">Ayzal</span>
+                <h1 className="text-2xl font-bold tracking-wide text-white italic font-serif">
+                  Eshal Ayzal
                 </h1>
                 <p className="text-xs uppercase tracking-widest text-[#EDE9FE] font-light">
                   Collection

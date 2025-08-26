@@ -19,7 +19,7 @@ export default function Footer() {
       >
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-purple-600">EshalAyzal Collection</h2>
+          <h2 className="text-2xl font-bold text-purple-600">Eshal aAyzal Collection</h2>
           <p className="mt-3 text-gray-600 text-sm leading-relaxed">
             Your one-stop shop for premium products at unbeatable prices.
           </p>
@@ -79,7 +79,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-purple-200 py-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} EshalAyzal Collection. All rights reserved.
+        © {new Date().getFullYear()} Eshal Ayzal Collection. All rights reserved.
       </div>
     </footer>
   );
