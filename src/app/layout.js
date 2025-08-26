@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Eshal & Ayzal Collection",
+  title: "Eshaal & Ayzal Collection",
   description: "Explore a world of fashion, beauty, and exclusive deals.",
 };
 

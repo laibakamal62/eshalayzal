@@ -11,10 +11,10 @@ export default function AboutUs() {
           {/* Text Section */}
           <div className="w-full lg:w-1/2 text-gray-900 animate-fade-in-up">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-              About Eshal Ayzal Collection
+              About Eshaal Ayzal Collection
             </h2>
             <p className="text-base sm:text-lg mb-6 leading-relaxed">
-              Eshal Ayzal Collection is your trusted destination for premium
+              Eshaal Ayzal Collection is your trusted destination for premium
               products — from elegant fashion and stylish accessories to everyday
               essentials. We are passionate about curating only the best for our
               valued customers.
@@ -26,7 +26,7 @@ export default function AboutUs() {
               you love is just a click away.
             </p>
             <p className="text-base sm:text-lg mb-6 leading-relaxed">
-              At Eshal Ayzal Collection, customer satisfaction comes first.
+              At Eshaal Ayzal Collection, customer satisfaction comes first.
               That’s why we ensure fast shipping, reliable service, and
               hassle-free returns — because shopping should always feel good.
             </p>

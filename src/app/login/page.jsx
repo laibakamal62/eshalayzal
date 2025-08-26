@@ -61,7 +61,7 @@ export default function LoginPage() {
     Welcome to
   </h2>
   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
-    Eshal & Ayzal Collection
+    Eshaal & Ayzal Collection
   </h3>
 
   {/* Description removed on mobile */}

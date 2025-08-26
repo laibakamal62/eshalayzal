@@ -33,7 +33,7 @@ export default function Navbar() {
             <Link href="/" className="block">
               <div className="text-center leading-tight">
                 <h1 className="text-2xl font-bold tracking-wide text-white italic font-serif">
-                  Eshal Ayzal
+                  Eshaal Ayzal
                 </h1>
                 <p className="text-xs uppercase tracking-widest text-[#EDE9FE] font-light">
                   Collection
