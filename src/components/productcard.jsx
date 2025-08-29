@@ -43,11 +43,12 @@ export default function ProductCard({ product }) {
       <div className="relative">
         <Link href={`/products/${product._id}`}>
           <div className="w-full h-80 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all p-3 flex items-center justify-center">
-  <img
-    src={`${baseURL}/uploads/products/${product.image}`}
-    alt={product.name}
-    className="max-h-full max-w-full object-contain"
-  />
+<img
+  src={product.image}
+  alt={product.name}
+  className="max-h-full max-w-full object-contain"
+/>
+
 </div>
 
         </Link>
