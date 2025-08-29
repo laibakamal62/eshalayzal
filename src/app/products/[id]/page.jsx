@@ -78,7 +78,7 @@ export default function ProductDetail() {
             <AnimatePresence mode="wait">
               <motion.img
                 key={selectedImage}
-                src={`${baseURL}/uploads/products/${selectedImage}`}
+  src={selectedImage} // <-- use the full URL directly
                 alt={product.name}
                 className="object-contain w-[480px] h-[480px] shadow-2xl border-white/50"
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -94,7 +94,7 @@ export default function ProductDetail() {
           <div className="flex gap-4 flex-wrap mt-6 justify-center">
             <motion.img
               whileHover={{ scale: 1.1 }}
-              src={`${baseURL}/uploads/products/${product.image}`}
+  src={product.image} // just use the URL directly
               alt={product.name}
               className={`w-20 h-20 object-cover rounded-xl border-2 cursor-pointer transition ${
                 selectedImage === product.image
@@ -112,7 +112,7 @@ export default function ProductDetail() {
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     key={idx}
-                    src={`${baseURL}/uploads/products/${v.image}`}
+  src={v.image} // just use the URL directly
                     alt={v.color || `Variation ${idx + 1}`}
                     className={`w-20 h-20 object-cover rounded-xl border-2 cursor-pointer transition ${
                       selectedImage === v.image
@@ -215,7 +215,7 @@ export default function ProductDetail() {
             onClick={() => setIsZoomed(false)}
           >
             <motion.img
-              src={`${baseURL}/uploads/products/${selectedImage}`}
+  src={selectedImage} // <-- use the full URL directly
               alt={product.name}
               className="max-h-[90%] max-w-[90%] object-contain rounded-lg shadow-2xl"
               initial={{ scale: 0.9 }}
