@@ -31,11 +31,12 @@ export default function AllCategories() {
               className="flex flex-col items-center text-center group"
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-gray-300 shadow-sm group-hover:shadow-md transition">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/${category.image}`}
-                  alt={category.name}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
-                />
+               <img
+  src={category.image} // use the Cloudinary URL directly
+  alt={category.name}
+  className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
+/>
+
               </div>
 
               <h2 className="mt-3 text-sm sm:text-base font-semibold text-gray-800 group-hover:text-black transition">
