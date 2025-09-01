@@ -16,17 +16,18 @@ export default function CategoryProducts() {
       setLoading(false);
       return;
     }
-  const baseURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `a/api/get-products?categorySlug=${slug}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/get-products?categorySlug=${slug}`,
           {
             headers: { "Content-Type": "application/json" },
           }
         );
+
         if (!response.ok) throw new Error("Failed to fetch products");
+
         const data = await response.json();
         if (data.success) {
           setProducts(data.products);
@@ -64,12 +65,11 @@ export default function CategoryProducts() {
       ) : products.length === 0 ? (
         <p className="text-center text-gray-600">No products found</p>
       ) : (
-       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-  {products.map((product) => (
-    <ProductCard key={product._id} product={product} />
-  ))}
-</div>
-
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
       )}
     </section>
   );
