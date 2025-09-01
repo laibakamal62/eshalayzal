@@ -18,9 +18,10 @@ export default function AllCategories() {
 
   return (
     <section className="w-full mt-6 py-10 px-4 sm:px-6">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-extrabold mb-10 text-gray-900 tracking-wide">
-        READY TO WEAR
-      </h1>
+     <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-center font-extrabold mb-10 text-gray-900 tracking-wide">
+  READY TO WEAR
+</h1>
+
 
       <div className="max-w-6xl mx-auto flex justify-center">
         <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-8 justify-items-center">
